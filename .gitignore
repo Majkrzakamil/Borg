@@ -1,4 +1,20 @@
+# Dependency directories
 node_modules/
+.pnpm-store/
+
+# Gatsby files
 .cache/
-public
+public/
 src/gatsby-types.d.ts
+gatsby-config.js
+
+# Environment files
+.env*
+
+# Production build files
+/dist
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
+.vscode/
