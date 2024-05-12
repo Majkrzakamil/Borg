@@ -1,7 +1,6 @@
 import { CurrentPrice, HistoricalPrice, Period } from '../types';
 import { handleResponse } from './apiUtils';
-
-const API_BASE_URL = 'https://borg-api-techchallenge.swissborg-stage.com';
+import { API_BASE_URL } from '../config';
 
 export const fetchCurrentPrice = (): Promise<CurrentPrice> => {
   return fetch(`${API_BASE_URL}/api/price`).then(response => handleResponse<CurrentPrice>(response));

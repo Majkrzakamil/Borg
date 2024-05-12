@@ -1,7 +1,6 @@
 import { BurnTransaction } from '../types';
 import { handleResponse } from './apiUtils';
-
-const API_BASE_URL = 'https://borg-api-techchallenge.swissborg-stage.com';
+import { API_BASE_URL } from '../config';
 
 export const fetchBurnTransactions = (): Promise<BurnTransaction[]> => {
   return fetch(`${API_BASE_URL}/api/burn-transactions`).then(response => handleResponse<BurnTransaction[]>(response));
