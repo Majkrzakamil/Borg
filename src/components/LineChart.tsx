@@ -3,7 +3,6 @@ import { Line } from 'react-chartjs-2';
 import { useHistoricalPrice } from '../contexts/HistoricalPriceContext';
 import { Chart, LineController, LineElement, PointElement, LinearScale, Title, Tooltip, Filler, Legend, CategoryScale } from 'chart.js';
 
-// Register necessary Chart.js components
 Chart.register(LineController, LineElement, PointElement, LinearScale, Title, Tooltip, Filler, Legend, CategoryScale);
 
 const LineChart = () => {

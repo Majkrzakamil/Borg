@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { fetchHistoricalPrice } from '../services/borgPriceService';
-import { Period } from '../types/apiTypes';
-import { HistoricalPriceContextType } from '../types/contextTypes';
+import { fetchHistoricalPrice } from '../services';
+import { Period, HistoricalPrice, HistoricalPriceContextType } from '../types';
 
 const HistoricalPriceContext = createContext<HistoricalPriceContextType>({
 	data: null,
@@ -16,9 +15,9 @@ interface HistoricalPriceProviderProps {
 
 export const HistoricalPriceProvider: React.FC<HistoricalPriceProviderProps> = ({ children }) => {
 	const [period, setPeriod] = useState<Period>('day');
-	const [data, setData] = useState<HistoricalPriceContextType['data']>(null);
-	const [isLoading, setIsLoading] = useState<HistoricalPriceContextType['isLoading']>(false);
-	const [error, setError] = useState<HistoricalPriceContextType['error']>(null);
+	const [data, setData] = useState<HistoricalPrice[] | null>(null);
+	const [isLoading, setIsLoading] = useState<boolean>(false);
+	const [error, setError] = useState<Error | null>(null);
 
 	useEffect(() => {
 		const loadData = async () => {
