@@ -9,6 +9,7 @@ import { CurrentPriceProvider } from '../contexts/CurrentPriceContext';
 import CurrentPriceDisplay from '../components/CurrentPriceDisplay';
 // import { CurrentPriceProvider } from '../contexts/';
 // import PriceDisplay from '../components/PriceDisplay';
+import StatsList from "../components/StatsList";
 
 const pageStyles = {
 	color: "#232129",
@@ -206,6 +207,7 @@ const IndexPage: React.FC<PageProps> = () => {
 					<LineChart />
 				</HistoricalPriceProvider>
 				<SupplyStatsProvider>
+					<StatsList />
 					<div style={{ padding: '20px' }}>
 						<h3>Borg Statistics</h3>
 						<DoughnutChart />
