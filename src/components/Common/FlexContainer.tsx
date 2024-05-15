@@ -4,15 +4,15 @@ import styled from 'styled-components';
 interface FlexContainerProps {
   children: React.ReactNode;
   direction?: 'row' | 'column';
-  justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around';
-  alignItems?: 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch';
+  justifycontent?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around';
+  alignitems?: 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch';
 }
 
 const StyledFlexContainer = styled.div<FlexContainerProps>`
   display: flex;
   flex-direction: ${({ direction }) => direction || 'row'};
-  justify-content: ${({ justifyContent }) => justifyContent || 'flex-start'};
-  align-items: ${({ alignItems }) => alignItems || 'stretch'};
+  justify-content: ${({ justifycontent }) => justifycontent || 'flex-start'};
+  align-items: ${({ alignitems }) => alignitems || 'stretch'};
   width: 100%;
   gap: 2rem;
 `;
@@ -20,11 +20,11 @@ const StyledFlexContainer = styled.div<FlexContainerProps>`
 const FlexContainer: React.FC<FlexContainerProps> = ({
   children,
   direction,
-  justifyContent,
-  alignItems
+  justifycontent,
+  alignitems
 }) => {
   return (
-    <StyledFlexContainer direction={direction} justifyContent={justifyContent} alignItems={alignItems}>
+    <StyledFlexContainer direction={direction} justifycontent={justifycontent} alignitems={alignitems}>
       {children}
     </StyledFlexContainer>
   );
