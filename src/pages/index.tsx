@@ -1,14 +1,15 @@
-import * as React from "react";
-import type { HeadFC, PageProps } from "gatsby";
-import Layout from "../components/Common/Layout";
-import Section from "../components/Common/Section";
-import FlexContainer from "../components/Common/FlexContainer";
+import React, { lazy, Suspense } from 'react';
+import type { HeadFC, PageProps } from 'gatsby';
+import Layout from '../components/Common/Layout';
+import Section from '../components/Common/Section';
+import FlexContainer from '../components/Common/FlexContainer';
 import { SupplyStatsProvider } from '../contexts/SupplyStatsContext';
-import DoughnutChart from '../components/DoughnutChart';
-import StatsList from "../components/StatsList";
-import PriceAndChart from "../components/PriceAndChart"
-import Text from "../components/Text"
-import SEO from '../components/SEO'
+import Text from '../components/Text';
+import SEO from '../components/SEO';
+
+const DoughnutChart = lazy(() => import('../components/DoughnutChart'));
+const StatsList = lazy(() => import('../components/StatsList'));
+const PriceAndChart = lazy(() => import('../components/PriceAndChart'));
 
 const IndexPage: React.FC<PageProps> = () => {
 	const seoData = {
@@ -16,7 +17,7 @@ const IndexPage: React.FC<PageProps> = () => {
 		description: 'Deep-dive into the statistics of BORG and the mechanics of the full SwissBorg Ecosystem.',
 		url: 'https://gentle-faloodeh-4e50e9.netlify.app',
 		twitterUsername: '@elonmusk',
-	}
+	};
 
 	return (
 		<Layout>
@@ -30,7 +31,9 @@ const IndexPage: React.FC<PageProps> = () => {
 						<Text as="p" textAlign="center">
 							Deep-dive into the statistics of BORG and the mechanics of the full SwissBorg Ecosystem.
 						</Text>
-						<PriceAndChart />
+						<Suspense fallback={<div>Loading...</div>}>
+							<PriceAndChart />
+						</Suspense>
 					</FlexContainer>
 				</Section>
 				<Section>
@@ -40,8 +43,10 @@ const IndexPage: React.FC<PageProps> = () => {
 								Breakdown of BORG’s circulating supply
 							</Text>
 							<FlexContainer $justifyContent="space-between" $alignItems="center">
-								<StatsList />
-								<DoughnutChart />
+								<Suspense fallback={<div>Loading...</div>}>
+									<StatsList />
+									<DoughnutChart />
+								</Suspense>
 							</FlexContainer>
 						</FlexContainer>
 					</SupplyStatsProvider>
@@ -49,7 +54,7 @@ const IndexPage: React.FC<PageProps> = () => {
 			</main>
 		</Layout>
 	);
-}
+};
 
 export default IndexPage;
 export const Head: HeadFC = () => <title>Home Page</title>;

@@ -1,12 +1,11 @@
-// PriceAndChart.tsx
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import styled from 'styled-components';
-
-import CurrentPriceDisplay from './CurrentPriceDisplay';
-import LineChart from './LineChart';
-import ChartControls from './ChartControls';
 import { CurrentPriceProvider } from '../contexts/CurrentPriceContext';
 import { HistoricalPriceProvider } from '../contexts/HistoricalPriceContext';
+
+const CurrentPriceDisplay = lazy(() => import('./CurrentPriceDisplay'));
+const LineChart = lazy(() => import('./LineChart'));
+const ChartControls = lazy(() => import('./ChartControls'));
 
 const PriceChartContainer = styled.div`
   background: #191E29;
@@ -14,20 +13,24 @@ const PriceChartContainer = styled.div`
   border-radius: 0.375rem;
   display: flex;
   flex-direction: column;
-	max-width: 45rem;
-	width: 100%;
-	overflow: hidden;
+  max-width: 45rem;
+  width: 100%;
+  overflow: hidden;
 `;
 
 const PriceAndChart = () => {
 	return (
 		<PriceChartContainer>
 			<CurrentPriceProvider>
-				<CurrentPriceDisplay />
+				<Suspense fallback={<div>Loading...</div>}>
+					<CurrentPriceDisplay />
+				</Suspense>
 			</CurrentPriceProvider>
 			<HistoricalPriceProvider>
-				<LineChart />
-				<ChartControls />
+				<Suspense fallback={<div>Loading...</div>}>
+					<LineChart />
+					<ChartControls />
+				</Suspense>
 			</HistoricalPriceProvider>
 		</PriceChartContainer>
 	);
