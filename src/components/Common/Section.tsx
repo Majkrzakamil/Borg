@@ -11,7 +11,7 @@ const StyledSection = styled.section<SectionProps>`
   padding: 20px;
   min-height: 100vh;
   background: ${({ theme, $variant }) => $variant === 'dark' ? theme.colors.backgroundDark : theme.colors.white};
-  color: ${({ theme, $variant }) => $variant === 'dark' ? theme.colors.white : theme.colors.primary};
+  color: ${({ theme, $variant }) => $variant === 'dark' ? theme.colors.white : theme.colors.dark};
 `;
 
 const Section: React.FC<SectionProps> = ({ $variant = 'light', children }) => {

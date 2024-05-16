@@ -7,6 +7,7 @@ import { SupplyStatsProvider } from '../contexts/SupplyStatsContext';
 import DoughnutChart from '../components/DoughnutChart';
 import StatsList from "../components/StatsList";
 import PriceAndChart from "../components/PriceAndChart"
+import Text from "../components/Text"
 
 const IndexPage: React.FC<PageProps> = () => {
 	return (
@@ -14,16 +15,22 @@ const IndexPage: React.FC<PageProps> = () => {
 			<main>
 				<Section $variant="dark">
 					<FlexContainer direction="column" $alignItems="center">
-						<h1>BORG Token Metrics</h1>
-						<p>Deep-dive into the statistics of BORG and the mechanics of the full SwissBorg Ecosystem.</p>
+						<Text as="h1" fontSize="headline" fontWeight="demiBold">
+							BORG Token Metrics
+						</Text>
+						<Text as="p">
+							Deep-dive into the statistics of BORG and the mechanics of the full SwissBorg Ecosystem.
+						</Text>
 						<PriceAndChart />
 					</FlexContainer>
 				</Section>
 				<Section>
 					<SupplyStatsProvider>
 						<FlexContainer direction="column" $alignItems="center">
-							<h2>Breakdown of BORG’s circulating supply</h2>
-							<FlexContainer $justifyContent="space-between">
+							<Text as="h2" color="dark" fontSize="title" fontWeight="demiBold">
+								Breakdown of BORG’s circulating supply
+							</Text>
+							<FlexContainer $justifyContent="space-between" $alignItems="center">
 								<StatsList />
 								<DoughnutChart />
 							</FlexContainer>

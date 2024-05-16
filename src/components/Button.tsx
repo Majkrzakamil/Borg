@@ -9,7 +9,7 @@ interface ButtonProps {
 
 const StyledButton = styled.button<{ $isActive: string }>`
   padding: 0.4325rem;
-  background-color: ${({ $isActive, theme }) => $isActive === "true" ? theme.colors.greyLight : theme.colors.primary};
+  background-color: ${({ $isActive, theme }) => $isActive === "true" ? theme.colors.greyLight : theme.colors.dark};
 	color: ${({ $isActive, theme }) => $isActive === "true" ? theme.colors.green : theme.colors.white};
   border: none;
   cursor: pointer;

@@ -17,7 +17,7 @@ export interface Theme {
 
 export const theme: Theme = {
   colors: {
-    primary: '#191E29',
+    dark: '#191E29',
     white: '#FFFFFF',
     green: '#01C38D',
     grey: '#30353E',
@@ -32,6 +32,7 @@ export const theme: Theme = {
     title: '3rem',       // 48px
     subtitle: '1.75rem', // 28px
     regular: '1.375rem', // 22px
+    medium: '1.125rem',  // 18px
     small: '1.0625rem',  // 17px
     tiny: '0.6875rem'    // 11px
   },

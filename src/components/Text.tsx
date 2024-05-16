@@ -11,7 +11,7 @@ interface TextProps {
 }
 
 const StyledText = styled.span<TextProps>`
-  color: ${({ theme, color }) => (color ? theme.colors[color] : theme.colors.primary)};
+  color: ${({ theme, color }) => (color ? theme.colors[color] : theme.colors.dark)};
   font-weight: ${({ theme, fontWeight }) => (fontWeight ? theme.fontWeights[fontWeight] : theme.fontWeights.regular)};
   font-size: ${({ theme, fontSize }) => (fontSize ? theme.fontSizes[fontSize] : theme.fontSizes.base)};
 `;
