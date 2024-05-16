@@ -9,26 +9,31 @@ Chart.register(LineController, LineElement, PointElement, LinearScale, Title, To
 const LineChart = () => {
 	const chartRef = useRef<Chart<"line", number[], unknown> | null>(null);
 	const { data, isLoading, error, period } = useHistoricalPrice();
-	const [windowSize, setWindowSize] = useState(window.innerWidth);
+	const [windowSize, setWindowSize] = useState<number | null>(null);
 	const [initialLoad, setInitialLoad] = useState(true);
 
 	const handleResize = () => {
-		setWindowSize(window.innerWidth);
+		if (typeof window !== 'undefined') {
+			setWindowSize(window.innerWidth);
+		}
 	};
+
+	useEffect(() => {
+		if (typeof window !== 'undefined') {
+			setWindowSize(window.innerWidth);
+			window.addEventListener('resize', handleResize);
+
+			return () => {
+				window.removeEventListener('resize', handleResize);
+			};
+		}
+	}, []);
 
 	useEffect(() => {
 		if (data && initialLoad && !isLoading) {
 			setInitialLoad(false);
 		}
 	}, [data, isLoading]);
-
-	useEffect(() => {
-		window.addEventListener('resize', handleResize);
-
-		return () => {
-			window.removeEventListener('resize', handleResize);
-		};
-	}, []);
 
 	useEffect(() => {
 		if (!isLoading && data && chartRef.current) {
