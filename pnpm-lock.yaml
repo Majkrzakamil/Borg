@@ -23,6 +23,9 @@ importers:
       gatsby-plugin-image:
         specifier: ^3.13.1
         version: 3.13.1(@babel/core@7.24.5)(gatsby-plugin-sharp@5.13.1(gatsby@5.13.4(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@5.4.5))(graphql@16.8.1))(gatsby@5.13.4(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@5.4.5))(graphql@16.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      gatsby-plugin-manifest:
+        specifier: ^5.13.1
+        version: 5.13.1(gatsby@5.13.4(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@5.4.5))(graphql@16.8.1)
       gatsby-plugin-minify:
         specifier: ^0.5.0
         version: 0.5.0
@@ -3106,6 +3109,12 @@ packages:
         optional: true
       gatsby-source-filesystem:
         optional: true
+
+  gatsby-plugin-manifest@5.13.1:
+    resolution: {integrity: sha512-F8zGMYz2tRDAzQO7hLrYv+xCFyIoeySeGsEk9j1KTdWB4liVQvLtFSXzj7yljyOTinDmA7mDStCiQFStC0rHZQ==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      gatsby: ^5.0.0-next
 
   gatsby-plugin-minify@0.5.0:
     resolution: {integrity: sha512-+kAi1wTjvMCkSqjfrXBee0ulJlojRLG9ShZzhyxXXjK9lQcvZYJSkp1Ln2oAu4W+I/68Rjv+I99/Rp41WXj3Jw==}
@@ -9718,6 +9727,17 @@ snapshots:
     transitivePeerDependencies:
       - graphql
       - supports-color
+
+  gatsby-plugin-manifest@5.13.1(gatsby@5.13.4(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@5.4.5))(graphql@16.8.1):
+    dependencies:
+      '@babel/runtime': 7.24.5
+      gatsby: 5.13.4(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@5.4.5)
+      gatsby-core-utils: 4.13.1
+      gatsby-plugin-utils: 4.13.1(gatsby@5.13.4(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@5.4.5))(graphql@16.8.1)
+      semver: 7.6.2
+      sharp: 0.32.6
+    transitivePeerDependencies:
+      - graphql
 
   gatsby-plugin-minify@0.5.0:
     dependencies:

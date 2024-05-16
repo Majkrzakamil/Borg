@@ -16,7 +16,19 @@ const config: GatsbyConfig = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-image",
     "gatsby-plugin-minify",
-    "gatsby-plugin-offline"
+    "gatsby-plugin-offline",
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `BORG`,
+        short_name: `BORG`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#191E29`,
+        display: `standalone`,
+        icon: `static/icons/favicon.svg`,
+      },
+    },
   ]
 };
 
