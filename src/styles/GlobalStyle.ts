@@ -27,7 +27,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: 'TT Commons', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background: linear-gradient(270deg, #364053 0%, #191E29 100%);
+    background: #fff;
     color: #191E29;
   }
 `;

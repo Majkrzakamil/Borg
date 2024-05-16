@@ -11,8 +11,7 @@ const PriceContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: #191E2933;
-  background: #30353E;
+	background: ${({ theme }) => theme.colors.grey};
   padding: 0.915rem;
   border-radius: 0.375rem;
 `;
@@ -27,6 +26,7 @@ const IconsRow = styled.div`
 
 const IconWrapper = styled.div`
   position: absolute;
+  display: flex;
 `;
 
 const PriceInfo = styled.div`

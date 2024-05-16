@@ -21,6 +21,7 @@ export const theme: Theme = {
     white: '#FFFFFF',
     green: '#01C38D',
     grey: '#30353E',
+    greyLight: '#454950',
     backgroundDark: 'linear-gradient(270deg, #364053 0%, #191E29 100%)'
   },
   fonts: {
