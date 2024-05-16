@@ -9,11 +9,6 @@ const StyledWrapper = styled.div`
   width: 100%;
   max-width: 1180px;
   margin: 0 auto;
-  padding: 0 24px;
-
-  @media (max-width: 768px) {
-    padding: 0 24px;
-  }
 `;
 
 const Wrapper: React.FC<WrapperProps> = ({ children }) => {

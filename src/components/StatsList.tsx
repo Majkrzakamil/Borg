@@ -10,7 +10,6 @@ import FireIcon from '../icons/FireIcon'
 const List = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
   max-width: 34.375rem;
   width: 100%;
 `;

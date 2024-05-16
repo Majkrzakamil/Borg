@@ -7,12 +7,17 @@ export interface Theme {
     body: string;
   };
   fontSizes: {
-    [key: string]: string;
+    [key: string]: string | {
+      [key: string]: string;
+    };
   };
   fontWeights: {
     regular: number;
     demiBold: number;
   };
+  breakpoints: {
+    [key: string]: string;
+  }
 }
 
 export const theme: Theme = {
@@ -34,10 +39,25 @@ export const theme: Theme = {
     regular: '1.375rem', // 22px
     medium: '1.125rem',  // 18px
     small: '1.0625rem',  // 17px
-    tiny: '0.6875rem'    // 11px
+    tiny: '0.6875rem',    // 11px
+    mobile: {
+      headline: '2.5rem',  // 40px
+      title: '2rem',       // 32px
+      subtitle: '1.375rem', // 22px
+      regular: '1.125rem', // 18px
+      medium: '1.125rem',  // 18px
+      small: '0.6875rem',  // 11px 8.6px - in figma but it's too small
+      tiny: '0.6875rem'    // 11px 7px - in figma but it's too small
+    }
+
   },
   fontWeights: {
     regular: 400,
     demiBold: 600
+  },
+  breakpoints: {
+    mobile: '520px',
+    tablet: '800px',
+    desktop: '1101px'
   }
 };

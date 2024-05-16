@@ -16,6 +16,10 @@ const StyledFlexContainer = styled.div<FlexContainerProps>`
   width: 100%;
   gap: 2rem;
   flex-wrap: wrap;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
+    justify-content: center;
+  }
 `;
 
 const FlexContainer: React.FC<FlexContainerProps> = ({

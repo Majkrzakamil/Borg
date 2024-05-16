@@ -14,21 +14,35 @@ const ListItemStyled = styled.li`
   display: flex;
   align-items: center;
   gap: 0.67rem;
+  border-bottom: 0.0625rem solid #8F96A180;
+  padding: 0.75rem 0;
 `;
 
 const IconWrapper = styled.div`
+  display: flex;
   flex-shrink: 0;
 `;
 
-const ValueText = styled(Text)`
-  margin-left: auto;
+const CopyWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    flex-direction: column-reverse;
+    align-items: start;
+  }
 `;
 
 const ValueWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: auto;
   text-align: right;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    text-align: left;
+  }
 `;
 
 const ListItem: React.FC<ListItemProps> = ({ label, value, icon: Icon, subLabel }) => (
@@ -36,18 +50,20 @@ const ListItem: React.FC<ListItemProps> = ({ label, value, icon: Icon, subLabel 
     <IconWrapper>
       <Icon />
     </IconWrapper>
-    <Text color="dark" fontSize="subtitle">
-      {label}
-    </Text>
-    <ValueWrapper>
-      <Text color="green" fontSize="subtitle" fontWeight="demiBold">
-        {value}
+    <CopyWrapper>
+      <Text color="dark" fontSize="subtitle">
+        {label}
       </Text>
-      {subLabel &&
-        <Text color="green" fontSize="medium">
-          {subLabel}
-        </Text>}
-    </ValueWrapper>
+      <ValueWrapper>
+        <Text color="green" fontSize="subtitle" fontWeight="demiBold">
+          {value}
+        </Text>
+        {subLabel &&
+          <Text color="green" fontSize="medium">
+            {subLabel}
+          </Text>}
+      </ValueWrapper>
+    </CopyWrapper>
   </ListItemStyled>
 );
 

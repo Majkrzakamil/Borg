@@ -69,15 +69,21 @@ const LineChart = () => {
 
 	const formatDate = (dateString: string, period: Period) => {
 		const date = new Date(dateString);
+
+		const getTwoDigitYear = (date: Date) => {
+			return date.getFullYear().toString().slice(-2);
+		};
+
 		switch (period) {
 			case 'day':
 				return date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
 			case 'month':
 				return date.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit' });
 			case 'year':
-				return date.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit' });
 			case 'all':
-				return date.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit' });
+				const month = date.toLocaleDateString('en-US', { month: '2-digit' });
+				const year = getTwoDigitYear(date);
+				return `${month}/${year}`;
 			default:
 				return date.toLocaleDateString('en-US');
 		}

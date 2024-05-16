@@ -15,10 +15,10 @@ const IndexPage: React.FC<PageProps> = () => {
 			<main>
 				<Section $variant="dark">
 					<FlexContainer direction="column" $alignItems="center">
-						<Text as="h1" fontSize="headline" fontWeight="demiBold">
+						<Text as="h1" fontSize="headline" fontWeight="demiBold" textAlign="center">
 							BORG Token Metrics
 						</Text>
-						<Text as="p">
+						<Text as="p" textAlign="center">
 							Deep-dive into the statistics of BORG and the mechanics of the full SwissBorg Ecosystem.
 						</Text>
 						<PriceAndChart />
@@ -27,7 +27,7 @@ const IndexPage: React.FC<PageProps> = () => {
 				<Section>
 					<SupplyStatsProvider>
 						<FlexContainer direction="column" $alignItems="center">
-							<Text as="h2" color="dark" fontSize="title" fontWeight="demiBold">
+							<Text as="h2" color="dark" fontSize="title" fontWeight="demiBold" textAlign="center">
 								Breakdown of BORG’s circulating supply
 							</Text>
 							<FlexContainer $justifyContent="space-between" $alignItems="center">
