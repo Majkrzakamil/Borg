@@ -37,6 +37,10 @@ const IconWrapper = styled.div`
 const PriceInfo = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    text-align: center;
+  }
 `;
 
 const CurrentPriceDisplay: React.FC = () => {
