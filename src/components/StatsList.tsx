@@ -2,10 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSupplyStats } from '../contexts/SupplyStatsContext';
 import ListItem from './ListItem';
-import BorgIcon from '../icons/BorgIcon'
-import BuybackIcon from '../icons/BuybackIcon'
-import DiamondIcon from '../icons/DiamondIcon'
-import FireIcon from '../icons/FireIcon'
+import BorgIcon from '../icons/BorgIcon';
+import BuybackIcon from '../icons/BuybackIcon';
+import DiamondIcon from '../icons/DiamondIcon';
+import FireIcon from '../icons/FireIcon';
+import LoadingSpinner from '../components/Common/LoadingSpinner';
 
 const List = styled.ul`
   display: flex;
@@ -17,7 +18,7 @@ const List = styled.ul`
 const StatsList: React.FC = () => {
   const { supplyData, isLoading, error } = useSupplyStats();
 
-  if (isLoading) return <p>Loading data...</p>;
+  if (isLoading) return <LoadingSpinner $mobileHeight="26.25rem" $desktopHeight="23.5rem" />;
   if (error) return <p>Error loading data: {error.message}</p>;
   if (!supplyData) return <p>No data available</p>;
 

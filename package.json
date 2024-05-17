@@ -15,17 +15,21 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@loadable/component": "^5.16.4",
     "babel-plugin-styled-components": "^2.1.4",
     "chart.js": "^4.4.2",
     "chartjs-adapter-date-fns": "^3.0.0",
     "gatsby": "^5.13.3",
     "gatsby-plugin-image": "^3.13.1",
+    "gatsby-plugin-loadable-components-ssr": "^4.3.2",
     "gatsby-plugin-manifest": "^5.13.1",
     "gatsby-plugin-minify": "^0.5.0",
     "gatsby-plugin-offline": "^6.13.2",
+    "gatsby-plugin-perf-budgets": "^0.0.18",
     "gatsby-plugin-react-helmet": "^6.13.1",
     "gatsby-plugin-sharp": "^5.13.1",
     "gatsby-plugin-styled-components": "^6.13.1",
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.32",
     "gatsby-transformer-sharp": "^5.13.1",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
@@ -34,6 +38,7 @@
     "styled-components": "^6.1.11"
   },
   "devDependencies": {
+    "@types/loadable__component": "^5.13.9",
     "@types/node": "^20.11.19",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",

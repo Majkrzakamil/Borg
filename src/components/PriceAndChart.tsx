@@ -1,11 +1,19 @@
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
+import loadable from '@loadable/component';
 import styled from 'styled-components';
 import { CurrentPriceProvider } from '../contexts/CurrentPriceContext';
 import { HistoricalPriceProvider } from '../contexts/HistoricalPriceContext';
+import LoadingSpinner from '../components/Common/LoadingSpinner';
 
-const CurrentPriceDisplay = lazy(() => import('./CurrentPriceDisplay'));
-const LineChart = lazy(() => import('./LineChart'));
-const ChartControls = lazy(() => import('./ChartControls'));
+const CurrentPriceDisplay = loadable(() => import('./CurrentPriceDisplay'), {
+	fallback: <LoadingSpinner $mobileHeight="5.75rem" $desktopHeight="3.875rem" />,
+});
+const LineChart = loadable(() => import('./LineChart'), {
+	fallback: <LoadingSpinner $mobileHeight="10.75rem" $desktopHeight="22.5rem" />,
+});
+const ChartControls = loadable(() => import('./ChartControls'), {
+	fallback: <LoadingSpinner $mobileHeight="1.625rem" $desktopHeight="1.625rem" />,
+});
 
 const PriceChartContainer = styled.div`
   background: #191E29;
@@ -18,19 +26,15 @@ const PriceChartContainer = styled.div`
   overflow: hidden;
 `;
 
-const PriceAndChart = () => {
+const PriceAndChart: React.FC = () => {
 	return (
 		<PriceChartContainer>
 			<CurrentPriceProvider>
-				<Suspense fallback={<div>Loading...</div>}>
-					<CurrentPriceDisplay />
-				</Suspense>
+				<CurrentPriceDisplay />
 			</CurrentPriceProvider>
 			<HistoricalPriceProvider>
-				<Suspense fallback={<div>Loading...</div>}>
-					<LineChart />
-					<ChartControls />
-				</Suspense>
+				<LineChart />
+				<ChartControls />
 			</HistoricalPriceProvider>
 		</PriceChartContainer>
 	);

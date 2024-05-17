@@ -2,6 +2,7 @@ import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { useSupplyStats } from '../contexts/SupplyStatsContext';
 import { Chart as ChartJS, ChartDataset, ArcElement, Tooltip, TooltipItem, Legend } from 'chart.js';
+import LoadingSpinner from '../components/Common/LoadingSpinner';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -85,7 +86,7 @@ const doughnutLabelPlugin = {
 const DoughnutChart = () => {
   const { supplyData, isLoading, error } = useSupplyStats();
 
-  if (isLoading) return <p>Loading data...</p>;
+  if (isLoading) return <LoadingSpinner $mobileHeight="27rem" $desktopHeight="27rem" />;
   if (error) return <p>Error loading data: {error.message}</p>;
   if (!supplyData) return <p>No data available</p>;
 

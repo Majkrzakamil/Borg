@@ -3,6 +3,7 @@ import { Line } from 'react-chartjs-2';
 import { useHistoricalPrice } from '../contexts/HistoricalPriceContext';
 import { Chart, LineController, LineElement, PointElement, LinearScale, Title, Tooltip, Filler, Legend, CategoryScale } from 'chart.js';
 import { Period } from '../types/apiTypes'
+import LoadingSpinner from '../components/Common/LoadingSpinner';
 
 Chart.register(LineController, LineElement, PointElement, LinearScale, Title, Tooltip, Filler, Legend, CategoryScale);
 
@@ -12,14 +13,12 @@ const LineChart = () => {
 	const [windowSize, setWindowSize] = useState<number | null>(null);
 	const [initialLoad, setInitialLoad] = useState(true);
 
-	const handleResize = () => {
-		if (typeof window !== 'undefined') {
-			setWindowSize(window.innerWidth);
-		}
-	};
-
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
+			const handleResize = () => {
+				setWindowSize(window.innerWidth);
+			};
+
 			setWindowSize(window.innerWidth);
 			window.addEventListener('resize', handleResize);
 
@@ -34,6 +33,17 @@ const LineChart = () => {
 			setInitialLoad(false);
 		}
 	}, [data, isLoading]);
+
+	useEffect(() => {
+		if (!isLoading && data && chartRef.current) {
+			const chart = chartRef.current;
+			chart.data.labels = data.map(item => formatDate(item.timestamp, period));
+			chart.data.datasets.forEach((dataset) => {
+				dataset.data = data.map(item => item.price);
+			});
+			chart.update();
+		}
+	}, [data, period, isLoading]);
 
 	useEffect(() => {
 		if (!isLoading && data && chartRef.current) {
@@ -64,8 +74,8 @@ const LineChart = () => {
 	}, [chartRef.current, data, windowSize]);
 
 	if (error) return <p>Error loading chart data: {error.message}</p>;
-	if (isLoading && initialLoad) return <p>Loading chart data...</p>;
-	if (!data) return <p>Loading chart data...</p>;
+	if (isLoading && initialLoad) return <LoadingSpinner $mobileHeight="10.75rem" $desktopHeight="22.5rem" />;
+	if (!data) return <LoadingSpinner $mobileHeight="10.75rem" $desktopHeight="22.5rem" />;
 
 	const prices = data.map(item => item.price);
 	const minPrice = Math.min(...prices);

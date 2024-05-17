@@ -17,6 +17,7 @@ const config: GatsbyConfig = {
     "gatsby-plugin-image",
     "gatsby-plugin-minify",
     "gatsby-plugin-offline",
+    'gatsby-plugin-loadable-components-ssr',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -27,6 +28,24 @@ const config: GatsbyConfig = {
         theme_color: `#191E29`,
         display: `standalone`,
         icon: `static/icons/favicon.svg`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
+      options: {
+        analyzerMode: "static",
+        reportFilename: "./report.html",
+        openAnalyzer: false,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-perf-budgets",
+      options: {
+        thresholds: {
+          "max-size-total": 300,
+          "max-size-js": 150,
+          "max-size-css": 50,
+        },
       },
     },
   ]
