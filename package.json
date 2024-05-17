@@ -21,6 +21,7 @@
     "chart.js": "^4.4.2",
     "chartjs-adapter-date-fns": "^3.0.0",
     "gatsby": "^5.13.3",
+    "gatsby-plugin-fix-fouc": "^1.0.5",
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-loadable-components-ssr": "^4.3.2",
     "gatsby-plugin-manifest": "^5.13.1",

@@ -23,6 +23,7 @@ const config: GatsbyConfig = {
     'gatsby-plugin-minify',
     'gatsby-plugin-offline',
     'gatsby-plugin-loadable-components-ssr',
+    'gatsby-plugin-fix-fouc',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
