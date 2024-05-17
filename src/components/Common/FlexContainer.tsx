@@ -15,10 +15,10 @@ const StyledFlexContainer = styled.div<FlexContainerProps>`
   align-items: ${({ $alignItems }) => $alignItems || 'stretch'};
   width: 100%;
   gap: 2rem;
-  flex-wrap: wrap;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
     justify-content: center;
+    flex-wrap: wrap;
   }
 `;
 

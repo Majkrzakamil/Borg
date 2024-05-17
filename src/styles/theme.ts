@@ -1,4 +1,3 @@
-// src/styles/theme.ts
 export interface Theme {
   colors: {
     [key: string]: string;

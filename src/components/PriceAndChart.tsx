@@ -6,13 +6,13 @@ import { HistoricalPriceProvider } from '../contexts/HistoricalPriceContext';
 import LoadingSpinner from '../components/Common/LoadingSpinner';
 
 const CurrentPriceDisplay = loadable(() => import('./CurrentPriceDisplay'), {
-	fallback: <LoadingSpinner $mobileHeight="5.75rem" $desktopHeight="3.875rem" />,
+	fallback: <LoadingSpinner $mobileHeight="5.766875rem" $desktopHeight="3.8575rem" />,
 });
 const LineChart = loadable(() => import('./LineChart'), {
-	fallback: <LoadingSpinner $mobileHeight="10.75rem" $desktopHeight="22.5rem" />,
+	fallback: <LoadingSpinner $mobileHeight="10.6875rem" $desktopHeight="22.5rem" />,
 });
 const ChartControls = loadable(() => import('./ChartControls'), {
-	fallback: <LoadingSpinner $mobileHeight="1.625rem" $desktopHeight="1.625rem" />,
+	fallback: <LoadingSpinner $mobileHeight="1.676875rem" $desktopHeight="1.676875rem" />,
 });
 
 const PriceChartContainer = styled.div`
@@ -24,6 +24,11 @@ const PriceChartContainer = styled.div`
   max-width: 45rem;
   width: 100%;
   overflow: hidden;
+	min-height: 28.005625rem;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    min-height: 18.130625rem;
+  }
 `;
 
 const PriceAndChart: React.FC = () => {

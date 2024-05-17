@@ -10,10 +10,10 @@ import PriceAndChart from './PriceAndChart';
 import LoadingSpinner from './Common/LoadingSpinner';
 
 const DoughnutChart = loadable(() => import('./DoughnutChart'), {
-	fallback: <LoadingSpinner $mobileHeight="27rem" $desktopHeight="27rem" />,
+	fallback: <LoadingSpinner $desktopWidth="40%" $mobileHeight="27rem" $desktopHeight="27rem" />,
 });
 const StatsList = loadable(() => import('./StatsList'), {
-	fallback: <LoadingSpinner $mobileHeight="26.25rem" $desktopHeight="23.5rem" />,
+	fallback: <LoadingSpinner $desktopWidth="40%" $mobileHeight="26.3125rem" $desktopHeight="23.5rem" />,
 });
 
 interface AppProps {
@@ -30,17 +30,6 @@ const App: React.FC<AppProps> = ({ seoData }) => {
 		<Layout>
 			<main>
 				<SEO {...seoData} />
-				<Section $variant="dark">
-					<FlexContainer direction="column" $alignItems="center">
-						<Text as="h1" fontSize="headline" fontWeight="demiBold" $textAlign="center">
-							BORG Token Metrics
-						</Text>
-						<Text as="p" $textAlign="center">
-							Deep-dive into the statistics of BORG and the mechanics of the full SwissBorg Ecosystem.
-						</Text>
-						<PriceAndChart />
-					</FlexContainer>
-				</Section>
 				<Section>
 					<SupplyStatsProvider>
 						<FlexContainer direction="column" $alignItems="center">
@@ -53,6 +42,17 @@ const App: React.FC<AppProps> = ({ seoData }) => {
 							</FlexContainer>
 						</FlexContainer>
 					</SupplyStatsProvider>
+				</Section>
+				<Section $variant="dark">
+					<FlexContainer direction="column" $alignItems="center">
+						<Text as="h1" fontSize="headline" fontWeight="demiBold" $textAlign="center">
+							BORG Token Metrics
+						</Text>
+						<Text as="p" $textAlign="center">
+							Deep-dive into the statistics of BORG and the mechanics of the full SwissBorg Ecosystem.
+						</Text>
+						<PriceAndChart />
+					</FlexContainer>
 				</Section>
 			</main>
 		</Layout>
