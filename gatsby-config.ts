@@ -24,36 +24,6 @@ const config: GatsbyConfig = {
     'gatsby-plugin-offline',
     'gatsby-plugin-loadable-components-ssr',
     'gatsby-plugin-fix-fouc',
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `BORG`,
-        short_name: `BORG`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#191E29`,
-        display: `standalone`,
-        icon: `static/icons/favicon.svg`,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
-      options: {
-        analyzerMode: 'static',
-        reportFilename: './report.html',
-        openAnalyzer: false,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-perf-budgets',
-      options: {
-        thresholds: {
-          'max-size-total': 300,
-          'max-size-js': 150,
-          'max-size-css': 50,
-        },
-      },
-    },
   ],
 };
 
