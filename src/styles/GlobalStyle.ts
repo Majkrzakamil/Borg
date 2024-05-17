@@ -13,6 +13,7 @@ export const GlobalStyle = createGlobalStyle`
          url('/fonts/TTCommons-Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
+    font-display: swap;
   }
 
   @font-face {
@@ -21,6 +22,7 @@ export const GlobalStyle = createGlobalStyle`
          url('/fonts/TTCommons-DemiBold.woff') format('woff');
     font-weight: 600;
     font-style: normal;
+    font-display: swap;
   }
 
   body {

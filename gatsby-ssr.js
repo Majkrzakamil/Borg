@@ -21,3 +21,26 @@ export const wrapRootElement = ({ element }) => {
 		</>
 	);
 };
+
+export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
+	setHtmlAttributes({ lang: "en" })
+
+	setHeadComponents([
+		<link
+			rel="preload"
+			href="/fonts/TTCommons-Regular.woff2"
+			as="font"
+			type="font/woff2"
+			crossOrigin="anonymous"
+			key="TTCommonsRegular"
+		/>,
+		<link
+			rel="preload"
+			href="/fonts/TTCommons-DemiBold.woff2"
+			as="font"
+			type="font/woff2"
+			crossOrigin="anonymous"
+			key="TTCommonsDemiBold"
+		/>
+	])
+}

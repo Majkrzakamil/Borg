@@ -19,7 +19,6 @@ const SpinnerWrapper = styled.div<LoadingSpinnerProps>`
   align-items: center;
   width: ${(props) => props.$desktopWidth};
   height: ${(props) => props.$desktopHeight};
-  background-color: #e0e0e0;
   
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     width: ${(props) => props.$mobileWidth};
@@ -29,7 +28,7 @@ const SpinnerWrapper = styled.div<LoadingSpinnerProps>`
 
 const Spinner = styled.div`
   border: 4px solid rgba(255, 255, 255, 0.3);
-  border-top: 4px solid #fff;
+  border-top: 4px solid ${({ theme }) => theme.colors.green};
   border-radius: 50%;
   width: 1.5rem;
   height: 1.5rem;
