@@ -9,7 +9,8 @@ export interface Theme {
     [key: string]:
       | string
       | {
-          [key: string]: string;
+          desktop: string;
+          mobile: string;
         };
   };
   fontWeights: {
@@ -34,21 +35,33 @@ export const theme: Theme = {
     body: 'TT Commons, sans-serif',
   },
   fontSizes: {
-    headline: '5rem', // 80px
-    title: '3rem', // 48px
-    subtitle: '1.75rem', // 28px
-    regular: '1.375rem', // 22px
-    medium: '1.125rem', // 18px
-    small: '1.0625rem', // 17px
-    tiny: '0.6875rem', // 11px
-    mobile: {
-      headline: '2.5rem', // 40px
-      title: '2rem', // 32px
-      subtitle: '1.375rem', // 22px
-      regular: '1.125rem', // 18px
-      medium: '1.125rem', // 18px
-      small: '0.6875rem', // 11px 8.6px - in figma but it's too small
-      tiny: '0.6875rem', // 11px 7px - in figma but it's too small
+    headline: {
+      desktop: '5rem', // 80px
+      mobile: '2.5rem', // 40px
+    },
+    title: {
+      desktop: '3rem', // 48px
+      mobile: '2rem', // 32px
+    },
+    subtitle: {
+      desktop: '1.75rem', // 28px
+      mobile: '1.375rem', // 22px
+    },
+    regular: {
+      desktop: '1.375rem', // 22px
+      mobile: '1.125rem', // 18px
+    },
+    medium: {
+      desktop: '1.125rem', // 18px
+      mobile: '1.125rem', // 18px
+    },
+    small: {
+      desktop: '1.0625rem', // 17px
+      mobile: '0.6875rem', // 11px
+    },
+    tiny: {
+      desktop: '0.6875rem', // 11px
+      mobile: '0.6875rem', // 11px
     },
   },
   fontWeights: {
@@ -57,7 +70,6 @@ export const theme: Theme = {
   },
   breakpoints: {
     mobile: '520px',
-    tablet: '800px',
     desktop: '1101px',
   },
 };

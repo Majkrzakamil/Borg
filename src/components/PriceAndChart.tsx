@@ -22,18 +22,18 @@ const ChartControls = loadable(() => import('./ChartControls'), {
 });
 
 const PriceChartContainer = styled.div`
-  background: #191E29;
-  box-shadow: box-shadow: 0px 7.32px 12.2px 0px #0000004D;
+  background: #191e29;
+  box-shadow: 0px 7.32px 12.2px 0px #0000004d;
   border-radius: 0.375rem;
   display: flex;
   flex-direction: column;
   max-width: 45rem;
   width: 100%;
   overflow: hidden;
-	min-height: 28.005625rem;
+  min-height: 28.005625rem;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    min-height: 18.130625rem;
+    min-height: 18.818125rem;
   }
 `;
 

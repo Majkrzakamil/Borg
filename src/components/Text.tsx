@@ -11,18 +11,28 @@ interface TextProps {
   $textAlign?: 'left' | 'center' | 'right';
 }
 
+const getFontSize = (fontSize: keyof typeof theme.fontSizes) => {
+  const size = theme.fontSizes[fontSize];
+  return typeof size === 'string' ? size : size.desktop;
+};
+
+const getMobileFontSize = (fontSize: keyof typeof theme.fontSizes) => {
+  const size = theme.fontSizes[fontSize];
+  return typeof size === 'string' ? size : size.mobile;
+};
+
 const StyledText = styled.span<TextProps>`
   color: ${({ theme, color }) =>
     color ? theme.colors[color] : theme.colors.dark};
   font-weight: ${({ theme, fontWeight }) =>
     fontWeight ? theme.fontWeights[fontWeight] : theme.fontWeights.regular};
-  font-size: ${({ theme, fontSize }) =>
-    fontSize ? theme.fontSizes[fontSize] : theme.fontSizes.base};
+  font-size: ${({ fontSize }) =>
+    fontSize ? getFontSize(fontSize) : theme.fontSizes.regular};
   text-align: ${({ $textAlign }) => $textAlign};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
-    font-size: ${({ theme, fontSize }) =>
-      fontSize ? theme.fontSizes.mobile[fontSize] : '1.125rem'};
+    font-size: ${({ fontSize }) =>
+      fontSize ? getMobileFontSize(fontSize) : '1.125rem'};
   }
 `;
 

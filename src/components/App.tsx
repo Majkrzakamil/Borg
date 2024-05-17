@@ -23,7 +23,7 @@ const StatsList = loadable(() => import('./StatsList'), {
     <LoadingSpinner
       $desktopWidth="40%"
       $mobileHeight="26.3125rem"
-      $desktopHeight="23.5rem"
+      $desktopHeight="23.5625rem"
     />
   ),
 });
