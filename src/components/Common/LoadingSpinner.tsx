@@ -17,12 +17,12 @@ const SpinnerWrapper = styled.div<LoadingSpinnerProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: ${(props) => props.$desktopWidth};
-  height: ${(props) => props.$desktopHeight};
-  
+  width: ${props => props.$desktopWidth};
+  height: ${props => props.$desktopHeight};
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    width: ${(props) => props.$mobileWidth};
-    height: ${(props) => props.$mobileHeight};
+    width: ${props => props.$mobileWidth};
+    height: ${props => props.$mobileHeight};
   }
 `;
 
@@ -35,8 +35,18 @@ const Spinner = styled.div`
   animation: ${spin} 1s linear infinite;
 `;
 
-const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({ $mobileWidth = '100%', $desktopWidth = '100%', $mobileHeight, $desktopHeight }) => (
-  <SpinnerWrapper $mobileWidth={$mobileWidth} $desktopWidth={$desktopWidth} $mobileHeight={$mobileHeight} $desktopHeight={$desktopHeight}>
+const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
+  $mobileWidth = '100%',
+  $desktopWidth = '100%',
+  $mobileHeight,
+  $desktopHeight,
+}) => (
+  <SpinnerWrapper
+    $mobileWidth={$mobileWidth}
+    $desktopWidth={$desktopWidth}
+    $mobileHeight={$mobileHeight}
+    $desktopHeight={$desktopHeight}
+  >
     <Spinner />
   </SpinnerWrapper>
 );

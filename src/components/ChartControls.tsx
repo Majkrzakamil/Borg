@@ -4,11 +4,11 @@ import { useHistoricalPrice } from '../contexts/HistoricalPriceContext';
 import Button from '../components/Button';
 import { Period } from '../types';
 
-const periodOptions: { key: Period, label: string }[] = [
+const periodOptions: { key: Period; label: string }[] = [
   { key: 'day', label: '1D' },
   { key: 'month', label: '1M' },
   { key: 'year', label: '1Y' },
-  { key: 'all', label: 'ALL' }
+  { key: 'all', label: 'ALL' },
 ];
 
 const ControlsContainer = styled.div`

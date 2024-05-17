@@ -1,4 +1,10 @@
-import { HistoricalPrice, CurrentPriceResponse, BorgStats, BurnTransaction, Period } from './apiTypes';
+import {
+  HistoricalPrice,
+  CurrentPriceResponse,
+  BorgStats,
+  BurnTransaction,
+  Period,
+} from './apiTypes';
 
 export interface HistoricalPriceContextType {
   data: HistoricalPrice[] | null;

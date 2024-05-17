@@ -4,10 +4,6 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => (
-  <>
-    {children}
-  </>
-);
+const Layout: React.FC<LayoutProps> = ({ children }) => <>{children}</>;
 
 export default Layout;

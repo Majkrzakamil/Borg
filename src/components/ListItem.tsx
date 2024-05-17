@@ -14,7 +14,7 @@ const ListItemStyled = styled.li`
   display: flex;
   align-items: center;
   gap: 0.67rem;
-  border-bottom: 0.0625rem solid #8F96A180;
+  border-bottom: 0.0625rem solid #8f96a180;
   padding: 0.75rem 0;
 `;
 
@@ -45,7 +45,12 @@ const ValueWrapper = styled.div`
   }
 `;
 
-const ListItem: React.FC<ListItemProps> = ({ label, value, icon: Icon, subLabel }) => (
+const ListItem: React.FC<ListItemProps> = ({
+  label,
+  value,
+  icon: Icon,
+  subLabel,
+}) => (
   <ListItemStyled aria-label={`${label} - ${value}`}>
     <IconWrapper>
       <Icon />
@@ -58,10 +63,11 @@ const ListItem: React.FC<ListItemProps> = ({ label, value, icon: Icon, subLabel 
         <Text color="green" fontSize="subtitle" fontWeight="demiBold">
           {value}
         </Text>
-        {subLabel &&
+        {subLabel && (
           <Text color="green" fontSize="medium">
             {subLabel}
-          </Text>}
+          </Text>
+        )}
       </ValueWrapper>
     </CopyWrapper>
   </ListItemStyled>

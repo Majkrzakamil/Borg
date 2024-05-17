@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 interface WrapperProps {
-	children: React.ReactNode;
+  children: React.ReactNode;
 }
 
 const StyledWrapper = styled.div`
@@ -12,7 +12,7 @@ const StyledWrapper = styled.div`
 `;
 
 const Wrapper: React.FC<WrapperProps> = ({ children }) => {
-	return <StyledWrapper>{children}</StyledWrapper>;
+  return <StyledWrapper>{children}</StyledWrapper>;
 };
 
 export default Wrapper;

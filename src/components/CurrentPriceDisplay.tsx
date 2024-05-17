@@ -11,7 +11,7 @@ const PriceContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-	background: ${({ theme }) => theme.colors.grey};
+  background: ${({ theme }) => theme.colors.grey};
   padding: 0.915rem;
   border-radius: 0.375rem;
 
@@ -49,12 +49,16 @@ const CurrentPriceDisplay: React.FC = () => {
     <PriceContainer>
       <IconsRow>
         <USDIcon />
-        <IconWrapper><ArrowIcon /></IconWrapper>
+        <IconWrapper>
+          <ArrowIcon />
+        </IconWrapper>
         <BorgExchangeIcon />
       </IconsRow>
       <PriceInfo>
         <Text fontSize="small">USD ${price.usd.price.toFixed(3)}</Text>
-        <Text fontSize="tiny" color="green">{price.usd.change24h.toFixed(3)}% 24h</Text>
+        <Text fontSize="tiny" color="green">
+          {price.usd.change24h.toFixed(3)}% 24h
+        </Text>
       </PriceInfo>
     </PriceContainer>
   );

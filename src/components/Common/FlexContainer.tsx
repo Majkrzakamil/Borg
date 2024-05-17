@@ -4,7 +4,12 @@ import styled from 'styled-components';
 interface FlexContainerProps {
   children: React.ReactNode;
   direction?: 'row' | 'column';
-  $justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around';
+  $justifyContent?:
+    | 'flex-start'
+    | 'flex-end'
+    | 'center'
+    | 'space-between'
+    | 'space-around';
   $alignItems?: 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch';
 }
 
@@ -26,10 +31,14 @@ const FlexContainer: React.FC<FlexContainerProps> = ({
   children,
   direction,
   $justifyContent,
-  $alignItems
+  $alignItems,
 }) => {
   return (
-    <StyledFlexContainer direction={direction} $justifyContent={$justifyContent} $alignItems={$alignItems}>
+    <StyledFlexContainer
+      direction={direction}
+      $justifyContent={$justifyContent}
+      $alignItems={$alignItems}
+    >
       {children}
     </StyledFlexContainer>
   );
