@@ -55,44 +55,29 @@ const LineChart = () => {
     }
   }, [data, isLoading]);
 
-  useEffect(() => {
+  const updateChart = () => {
     if (!isLoading && data && chartRef.current) {
       const chart = chartRef.current;
       chart.data.labels = data.map(item => formatDate(item.timestamp, period));
       chart.data.datasets.forEach(dataset => {
         dataset.data = data.map(item => item.price);
-      });
-      chart.update();
-    }
-  }, [data, period, isLoading]);
 
-  useEffect(() => {
-    if (!isLoading && data && chartRef.current) {
-      const chart = chartRef.current;
-      chart.data.labels = data.map(item => formatDate(item.timestamp, period));
-      chart.data.datasets.forEach(dataset => {
-        dataset.data = data.map(item => item.price);
-      });
-      chart.update();
-    }
-  }, [data, period, isLoading]);
-
-  useEffect(() => {
-    if (chartRef.current && data) {
-      const ctx = chartRef.current.ctx;
-      const canvasHeight = ctx.canvas.clientHeight;
-      const gradientStroke = ctx.createLinearGradient(0, 0, 0, canvasHeight);
-      gradientStroke.addColorStop(0, '#01C38D80');
-      gradientStroke.addColorStop(0.25, '#01C38D80');
-      gradientStroke.addColorStop(0.35, '#01C38D80');
-      gradientStroke.addColorStop(1, 'transparent');
-
-      chartRef.current.data.datasets.forEach(dataset => {
+        const ctx = chart.ctx;
+        const canvasHeight = ctx.canvas.clientHeight;
+        const gradientStroke = ctx.createLinearGradient(0, 0, 0, canvasHeight);
+        gradientStroke.addColorStop(0, '#01C38D80');
+        gradientStroke.addColorStop(0.25, '#01C38D80');
+        gradientStroke.addColorStop(0.35, '#01C38D80');
+        gradientStroke.addColorStop(1, 'transparent');
         dataset.backgroundColor = gradientStroke;
       });
-      chartRef.current.update();
+      chart.update();
     }
-  }, [chartRef.current, data, windowSize]);
+  };
+
+  useEffect(() => {
+    updateChart();
+  }, [data, period, isLoading, windowSize]);
 
   if (error) return <p>Error loading chart data: {error.message}</p>;
   if (isLoading && initialLoad)
