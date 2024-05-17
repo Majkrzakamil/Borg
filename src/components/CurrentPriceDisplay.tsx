@@ -14,6 +14,11 @@ const PriceContainer = styled.div`
 	background: ${({ theme }) => theme.colors.grey};
   padding: 0.915rem;
   border-radius: 0.375rem;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    flex-direction: column;
+    align-items: start;
+  }
 `;
 
 const IconsRow = styled.div`
