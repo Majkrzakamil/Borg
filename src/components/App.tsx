@@ -42,6 +42,23 @@ const App: React.FC<AppProps> = ({ seoData }) => {
     <Layout>
       <main>
         <SEO {...seoData} />
+        <Section $variant="dark">
+          <FlexContainer direction="column" $alignItems="center">
+            <Text
+              as="h1"
+              fontSize="headline"
+              fontWeight="demiBold"
+              $textAlign="center"
+            >
+              BORG Token Metrics
+            </Text>
+            <Text as="p" $textAlign="center">
+              Deep-dive into the statistics of BORG and the mechanics of the
+              full SwissBorg Ecosystem.
+            </Text>
+            <PriceAndChart />
+          </FlexContainer>
+        </Section>
         <Section>
           <SupplyStatsProvider>
             <FlexContainer direction="column" $alignItems="center">
@@ -63,23 +80,6 @@ const App: React.FC<AppProps> = ({ seoData }) => {
               </FlexContainer>
             </FlexContainer>
           </SupplyStatsProvider>
-        </Section>
-        <Section $variant="dark">
-          <FlexContainer direction="column" $alignItems="center">
-            <Text
-              as="h1"
-              fontSize="headline"
-              fontWeight="demiBold"
-              $textAlign="center"
-            >
-              BORG Token Metrics
-            </Text>
-            <Text as="p" $textAlign="center">
-              Deep-dive into the statistics of BORG and the mechanics of the
-              full SwissBorg Ecosystem.
-            </Text>
-            <PriceAndChart />
-          </FlexContainer>
         </Section>
       </main>
     </Layout>
