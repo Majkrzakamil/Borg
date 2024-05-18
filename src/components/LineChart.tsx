@@ -55,29 +55,38 @@ const LineChart = () => {
     }
   }, [data, isLoading]);
 
+  const applyGradient = () => {
+    if (chartRef.current) {
+      const chart = chartRef.current;
+      const ctx = chart.ctx;
+      const canvasHeight = ctx.canvas.clientHeight;
+      const gradientStroke = ctx.createLinearGradient(0, 0, 0, canvasHeight);
+      gradientStroke.addColorStop(0, '#01C38D80');
+      gradientStroke.addColorStop(0.25, '#01C38D80');
+      gradientStroke.addColorStop(0.35, '#01C38D80');
+      gradientStroke.addColorStop(1, 'transparent');
+
+      chart.data.datasets.forEach(dataset => {
+        dataset.backgroundColor = gradientStroke;
+      });
+    }
+  };
+
   const updateChart = () => {
     if (!isLoading && data && chartRef.current) {
       const chart = chartRef.current;
       chart.data.labels = data.map(item => formatDate(item.timestamp, period));
       chart.data.datasets.forEach(dataset => {
         dataset.data = data.map(item => item.price);
-
-        const ctx = chart.ctx;
-        const canvasHeight = ctx.canvas.clientHeight;
-        const gradientStroke = ctx.createLinearGradient(0, 0, 0, canvasHeight);
-        gradientStroke.addColorStop(0, '#01C38D80');
-        gradientStroke.addColorStop(0.25, '#01C38D80');
-        gradientStroke.addColorStop(0.35, '#01C38D80');
-        gradientStroke.addColorStop(1, 'transparent');
-        dataset.backgroundColor = gradientStroke;
       });
+      applyGradient();
       chart.update();
     }
   };
 
   useEffect(() => {
     updateChart();
-  }, [data, period, isLoading, windowSize]);
+  }, [data, period, isLoading, windowSize, chartRef.current]);
 
   if (error) return <p>Error loading chart data: {error.message}</p>;
   if (isLoading && initialLoad)
