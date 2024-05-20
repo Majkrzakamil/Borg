@@ -1,26 +1,22 @@
-import React, {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  ReactNode,
-} from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { fetchCurrentPrice } from '../services';
 import { CurrentPriceContextType, CurrentPriceResponse } from '../types';
+
+interface CurrentPriceProviderProps {
+  children: ReactNode;
+  initialData: CurrentPriceResponse;
+}
 
 const CurrentPriceContext = createContext<CurrentPriceContextType>({
   price: null,
   isLoading: false,
 });
 
-interface CurrentPriceProviderProps {
-  children: ReactNode;
-}
-
 export const CurrentPriceProvider: React.FC<CurrentPriceProviderProps> = ({
   children,
+  initialData,
 }) => {
-  const [price, setPrice] = useState<CurrentPriceResponse | null>(null);
+  const [price, setPrice] = useState<CurrentPriceResponse | null>(initialData);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
@@ -35,8 +31,10 @@ export const CurrentPriceProvider: React.FC<CurrentPriceProviderProps> = ({
       setIsLoading(false);
     };
 
-    fetchPrice();
-  }, []);
+    if (!initialData) {
+      fetchPrice();
+    }
+  }, [initialData]);
 
   return (
     <CurrentPriceContext.Provider value={{ price, isLoading }}>

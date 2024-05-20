@@ -1,11 +1,4 @@
-// src/contexts/SupplyStatsContext.tsx
-import React, {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  ReactNode,
-} from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { fetchBorgStats, fetchBurnTransactions } from '../services';
 import { BorgStats, BurnTransaction, SupplyStatsContextType } from '../types';
 
@@ -18,12 +11,14 @@ const SupplyStatsContext = createContext<SupplyStatsContextType>({
 
 interface SupplyStatsProviderProps {
   children: ReactNode;
+  initialData: BorgStats;
 }
 
 export const SupplyStatsProvider: React.FC<SupplyStatsProviderProps> = ({
   children,
+  initialData,
 }) => {
-  const [supplyData, setSupplyData] = useState<BorgStats | null>(null);
+  const [supplyData, setSupplyData] = useState<BorgStats | null>(initialData);
   const [burnData, setBurnData] = useState<BurnTransaction[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error | null>(null);
@@ -49,8 +44,10 @@ export const SupplyStatsProvider: React.FC<SupplyStatsProviderProps> = ({
       setIsLoading(false);
     };
 
-    loadData();
-  }, []);
+    if (!initialData) {
+      loadData();
+    }
+  }, [initialData]);
 
   return (
     <SupplyStatsContext.Provider

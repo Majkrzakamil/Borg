@@ -1,24 +1,22 @@
 import React from 'react';
 import loadable from '@loadable/component';
 import styled from 'styled-components';
-import { CurrentPriceProvider } from '../contexts/CurrentPriceContext';
-import { HistoricalPriceProvider } from '../contexts/HistoricalPriceContext';
 import LoadingSpinner from '../components/Common/LoadingSpinner';
 
 const CurrentPriceDisplay = loadable(() => import('./CurrentPriceDisplay'), {
-  fallback: (
-    <LoadingSpinner $mobileHeight="5.766875rem" $desktopHeight="3.8575rem" />
-  ),
+	fallback: (
+		<LoadingSpinner $mobileHeight="5.766875rem" $desktopHeight="3.8575rem" />
+	),
 });
 const LineChart = loadable(() => import('./LineChart'), {
-  fallback: (
-    <LoadingSpinner $mobileHeight="10.6875rem" $desktopHeight="22.5rem" />
-  ),
+	fallback: (
+		<LoadingSpinner $mobileHeight="10.6875rem" $desktopHeight="22.5rem" />
+	),
 });
 const ChartControls = loadable(() => import('./ChartControls'), {
-  fallback: (
-    <LoadingSpinner $mobileHeight="1.676875rem" $desktopHeight="1.676875rem" />
-  ),
+	fallback: (
+		<LoadingSpinner $mobileHeight="1.676875rem" $desktopHeight="1.676875rem" />
+	),
 });
 
 const PriceChartContainer = styled.div`
@@ -38,17 +36,13 @@ const PriceChartContainer = styled.div`
 `;
 
 const PriceAndChart: React.FC = () => {
-  return (
-    <PriceChartContainer>
-      <CurrentPriceProvider>
-        <CurrentPriceDisplay />
-      </CurrentPriceProvider>
-      <HistoricalPriceProvider>
-        <LineChart />
-        <ChartControls />
-      </HistoricalPriceProvider>
-    </PriceChartContainer>
-  );
+	return (
+		<PriceChartContainer>
+			<CurrentPriceDisplay />
+			<LineChart />
+			<ChartControls />
+		</PriceChartContainer>
+	);
 };
 
 export default PriceAndChart;
