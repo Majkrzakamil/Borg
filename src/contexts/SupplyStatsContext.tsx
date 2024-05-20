@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from 'react';
 import { fetchBorgStats, fetchBurnTransactions } from '../services';
 import { BorgStats, BurnTransaction, SupplyStatsContextType } from '../types';
 

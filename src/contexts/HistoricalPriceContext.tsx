@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from 'react';
 import { fetchHistoricalPrice } from '../services';
 import { Period, HistoricalPrice, HistoricalPriceContextType } from '../types';
 
@@ -6,7 +12,7 @@ const HistoricalPriceContext = createContext<HistoricalPriceContextType>({
   data: null,
   isLoading: false,
   error: null,
-  handlePeriodChange: () => { },
+  handlePeriodChange: () => {},
   period: 'day',
 });
 
@@ -15,7 +21,9 @@ interface HistoricalPriceProviderProps {
   initialData: HistoricalPrice[];
 }
 
-export const HistoricalPriceProvider: React.FC<HistoricalPriceProviderProps> = ({ children, initialData }) => {
+export const HistoricalPriceProvider: React.FC<
+  HistoricalPriceProviderProps
+> = ({ children, initialData }) => {
   const [period, setPeriod] = useState<Period>('day');
   const [data, setData] = useState<HistoricalPrice[] | null>(initialData);
   const [isLoading, setIsLoading] = useState<boolean>(false);
